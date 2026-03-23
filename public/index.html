@@ -244,6 +244,21 @@
     .cmd code { font-family: var(--mono); color: var(--teal-light); white-space: nowrap; min-width: 160px; font-size: 13px; }
     .cmd span { color: var(--slate); font-size: 13px; }
 
+    /* ===== PRICING ===== */
+    .pricing { padding: 80px 0; border-top: 1px solid var(--border); }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 680px; margin: 0 auto; }
+    @media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .price-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px; }
+    .price-card.pro { border-color: var(--teal-light); position: relative; }
+    .price-card .plan-name { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+    .price-card .plan-price { font-family: var(--mono); font-size: 32px; font-weight: 700; color: var(--white); }
+    .price-card .plan-price span { font-size: 15px; color: var(--slate); font-weight: 400; }
+    .price-card .plan-desc { font-size: 14px; color: var(--slate); margin: 10px 0 20px; }
+    .price-card ul { list-style: none; padding: 0; }
+    .price-card li { font-size: 13px; color: var(--slate); padding: 5px 0; padding-left: 20px; position: relative; }
+    .price-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal-light); font-size: 13px; }
+    .price-card.pro li::before { color: var(--teal-bright); }
+
     /* ===== SECTION HEADERS ===== */
     .section-header { padding: 80px 0 36px; border-top: 1px solid var(--border); }
     .section-header h2 { font-size: 32px; font-weight: 700; letter-spacing: -1px; margin-bottom: 6px; }
@@ -282,6 +297,7 @@
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#commands">Commands</a>
+        <a href="#pricing">Pricing</a>
         <a href="#terms">Terms</a>
         <a href="#privacy">Privacy</a>
         <a href="https://discord.com/oauth2/authorize?client_id=1485455046174052442&permissions=2147567616&integration_type=0&scope=bot+applications.commands" class="nav-cta">Add to Discord</a>
@@ -392,6 +408,43 @@
     </div>
   </section>
 
+  <section class="pricing" id="pricing">
+    <div class="container" style="text-align: center; margin-bottom: 32px;">
+      <h2 style="font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px;">Simple pricing</h2>
+      <p style="color: var(--slate); font-size: 15px;">Try everything for free. Upgrade when you need more.</p>
+    </div>
+    <div class="container">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="plan-name" style="color: var(--slate);">Free</div>
+          <div class="plan-price">$0 <span>/ forever</span></div>
+          <div class="plan-desc">Try every command. No credit card needed.</div>
+          <ul>
+            <li>3 actions per day</li>
+            <li>1 AI question per day</li>
+            <li>All 20 commands available</li>
+            <li>All 50 states covered</li>
+            <li>Private responses (only you see them)</li>
+            <li>Resets at midnight UTC</li>
+          </ul>
+        </div>
+        <div class="price-card pro">
+          <div class="plan-name" style="color: var(--teal-light);">Pro</div>
+          <div class="plan-price">$6.99 <span>/ month</span></div>
+          <div class="plan-desc">Unlimited access to everything. Cancel anytime.</div>
+          <ul>
+            <li>Unlimited actions</li>
+            <li>Unlimited AI questions</li>
+            <li>All 20 commands, no limits</li>
+            <li>Teal Pro badge on every response</li>
+            <li>Priority support</li>
+            <li>Subscribe directly inside Discord</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TERMS -->
   <div class="section-header" id="terms"><div class="container"><h2>Terms of service</h2><p>The rules for using DeductIQ.</p></div></div>
   <section class="legal"><div class="container">
@@ -410,8 +463,8 @@
   <div class="section-header" id="privacy"><div class="container"><h2>Privacy policy</h2><p>How DeductIQ handles your data.</p></div></div>
   <section class="legal"><div class="container">
     <p class="effective">Effective date: March 22, 2026</p>
-    <h3>1. What we collect</h3><p>DeductIQ collects minimal data required to operate the bot:</p><ul><li><strong>Discord User ID</strong> — used for rate limiting and user preferences. This is a public numeric identifier, not your email or password.</li><li><strong>Command usage</strong> — which commands you use and when, for rate limiting and anonymous usage analytics.</li><li><strong>State preference</strong> — if you set a home state, we store your two-letter state abbreviation.</li></ul>
-    <h3>2. What we do NOT collect</h3><ul><li>Your name, email, phone number, or address</li><li>Your income, trading activity, or financial data</li><li>Social Security numbers or tax identification numbers</li><li>Bank account or credit card information</li><li>The content of your messages in Discord (we only see slash command inputs)</li></ul>
+    <h3>1. What we collect</h3><p>DeductIQ collects minimal data required to operate the bot:</p><ul><li><strong>Discord User ID</strong> — used for rate limiting and user preferences. This is a public numeric identifier, not your email or password.</li><li><strong>Command usage</strong> — which commands you use and when, for rate limiting and anonymous usage analytics.</li><li><strong>State preference</strong> — if you set a home state, we store your two-letter state abbreviation.</li><li><strong>Tax profile (Pro only)</strong> — if you opt in, we store your self-reported trading income, trader type, and filing status to personalize your experience. This data is entered by you and can be deleted anytime.</li></ul>
+    <h3>2. What we do NOT collect</h3><ul><li>Your name, email, phone number, or address</li><li>Social Security numbers or tax identification numbers</li><li>Bank account or credit card information</li><li>Actual trading data, brokerage account info, or transaction history</li><li>The content of your messages in Discord (we only see slash command inputs)</li></ul>
     <h3>3. How we use your data</h3><ul><li><strong>Rate limiting</strong> — tracking daily command usage to enforce free tier limits</li><li><strong>Service improvement</strong> — anonymous, aggregated analytics on which commands are popular</li><li><strong>Personalization</strong> — storing your state preference so you don't have to type it each time</li></ul>
     <h3>4. Data sharing</h3><p>We do <strong>not</strong> sell, license, or share your data with any third party, data broker, advertising network, or monetization service. Your slash command inputs are sent to Anthropic's API for AI processing — Anthropic's privacy policy applies to that processing. No other third parties receive your data.</p>
     <h3>5. Data retention</h3><ul><li><strong>Usage tracking data</strong> (rate limiting) — automatically deleted after 30 days</li><li><strong>User preferences</strong> (state, settings) — stored until you request deletion</li></ul>
